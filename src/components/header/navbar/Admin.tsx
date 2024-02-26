@@ -1,5 +1,6 @@
 import { logoutAdmin } from "@/lib/admin.actions"
 import { useRouter, useSearchParams } from "next/navigation"
+import { GiReceiveMoney } from "react-icons/gi";
 
 const Admin = () => {
 
@@ -21,7 +22,7 @@ const Admin = () => {
           <div>
             <section className="flex gap-8">
               <button>Perfil</button>
-              <button>Cobros</button>
+              <button><GiReceiveMoney /></button>
               <button className="group bg-primary-500 font-squada rounded-3xl p-1 px-2  text-baltic-sea-900" onClick={logout}>
                 <p className="group-active:scale-95">Cerrar Sesión</p>
               </button>

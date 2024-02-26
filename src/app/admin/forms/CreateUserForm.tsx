@@ -51,7 +51,7 @@ const CreateUserForm = () => {
     }
 
     return (
-        <section className="relative w-screen flex flex-col gap-5 items-center text-baltic-sea-900 p-4">
+        <section className="relative size-full flex flex-col gap-5 items-center text-baltic-sea-900 p-4">
 
             {formState === "userCreated"! && <span className="animate-bounce absolute top-0">Usuario creado exitosamente</span>}
 
