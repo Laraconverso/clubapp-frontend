@@ -15,11 +15,11 @@ type Inputs = {
     address: string,
 }
 const schema: yup.ObjectSchema<Inputs> = yup.object({
-    name: yup.string().required("Proporciona el nombre del jugador"),
+    name: yup.string().required("Ingresa el nombre del jugador"),
     lastName: yup.string().required("Ingresa el apellido del jugador"),
-    dni: yup.string().required("Ingresa el numero de identificación del jugador"),
+    dni: yup.string().required("Ingresa el DNI del jugador"),
     email: yup.string().email("Proporciona un Email valido").required("Ingresa el Email del jugador"),
-    birthday: yup.string().required("Ingresa la fecha de nacimiento del jugador"),
+    birthday: yup.string().required("Ingresa la fecha de nacimiento"),
     address: yup.string().required("Dirección de residencia del jugador"),
 })
 const placeholders: Record<keyof Inputs, string> = {
@@ -51,13 +51,12 @@ const CreateUserForm = () => {
     }
 
     return (
-        <section className="relative size-full flex flex-col gap-5 items-center text-baltic-sea-900 p-4">
+        <section className="relative size-full flex flex-col gap-10 items-center text-baltic-sea-900 p-4">
 
-            {formState === "userCreated"! && <span className="animate-bounce absolute top-0">Usuario creado exitosamente</span>}
 
-            <span className="opacity-0 transition-opacity ">usuario creado correctamente</span>
             <h2 className="font-squada text-2xl md:text-4xl">Formulario alta <b>Usuario</b></h2>
-            <form className="flex flex-col gap-4" action={createUser}>
+            {formState === "userCreated" && <span className="animate-bounce  top-0">Usuario creado exitosamente</span>}
+            <form className="flex flex-col gap-10" action={createUser}>
                 <div className="grid md:grid-cols-2 gap-4">
 
                     {Object.keys(schema.fields).map((fieldName, index) => (
@@ -68,7 +67,7 @@ const CreateUserForm = () => {
                                 name={fieldName}
                                 className="bg-transparent text-center md:text-left placeholder:text-baltic-sea-900 border-b-[1px] border-baltic-sea-900 outline-none"
                                 placeholder={placeholders[fieldName as keyof Inputs]} />
-                            {errors[fieldName as keyof Inputs]?.message && <span className="text-sm text-red-500">{errors[fieldName as keyof Inputs]?.message}</span>}
+                            {errors[fieldName as keyof Inputs]?.message && <span className="text-xs text-red-600">{errors[fieldName as keyof Inputs]?.message}</span>}
                         </div>
                     ))}
                 </div>

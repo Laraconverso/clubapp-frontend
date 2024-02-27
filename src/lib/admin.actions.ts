@@ -2,6 +2,8 @@
 
 import { cookies } from "next/headers"
 
+const apiBaseURL = process.env.NODE_ENV === 'production' ? process.env.API_BASE_URL : "http://localhost:8080"
+
 export async function validateAdminAuth () {
     return cookies().has("adminAuth")
 }
@@ -23,7 +25,7 @@ export async function createUserAction(formData: FormData) {
     }
 
     try {
-        const data = await fetch('http://localhost:8080/players/save' , {  
+        const data = await fetch(`${apiBaseURL}/players/save` , {  
             method: "POST",
             headers: {
             "Content-Type": "application/json",

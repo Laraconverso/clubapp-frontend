@@ -2,6 +2,8 @@
 
 import { cookies } from "next/headers"
 
+const apiBaseURL = process.env.NODE_ENV === 'production' ? process.env.API_BASE_URL : "http://localhost:8080"
+
 export async function authDNI(formData: FormData) {
     const dni = formData.get("dni")?.toString()  ;
     if (!dni) return false; 
@@ -14,7 +16,7 @@ export async function authDNI(formData: FormData) {
 
 const validateDNI =async (dni: string) => {
     try {
-        const getUserByDNI = await fetch(`http://localhost:8080/players/getByDni/${dni}`, {method: 'GET'})
+        const getUserByDNI = await fetch(`${apiBaseURL}/players/getByDni/${dni}`, {method: 'GET'})
         return getUserByDNI.status === 200 ? true : false; 
         
     } catch (error) {
@@ -27,7 +29,7 @@ export async function authUser(formData:FormData) {
     const email = formData.get("email")?.toString();
     const password = formData.get("password")?.toString();
 
-    const getUserByDNI = await fetch(`http://localhost:8080/players/getByDni/${dni}`, {method: 'GET'})
+    const getUserByDNI = await fetch(`${apiBaseURL}/players/getByDni/${dni}`, {method: 'GET'})
 
     const user = await getUserByDNI.json()
 
@@ -39,6 +41,6 @@ export async function authUser(formData:FormData) {
 export async function adminAuth (password?: string ){
     const validPassword = password === process.env.ADMIN_PASSWORD ? true : false;
     if (!validPassword) return false
-    cookies().set("adminAuth", "true" ,{ maxAge: 50 })
+    cookies().set("adminAuth", "true" )
     return true
 }

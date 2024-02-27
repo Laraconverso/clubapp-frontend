@@ -15,11 +15,11 @@ const page = async() => {
   {
     !adminAuth ? <LoginAdmin/> 
     : 
-    <div className="text- center  bg-baltic-sea-100 text-baltic-sea-950">
+    <div className="text- center  bg-baltic-sea-300 text-baltic-sea-950">
        <figure className="w-full">
           <Image src={footballAdminBanner} className="object-cover" alt={"Football banner"}/>
         </figure>
-      <h2 className="text-center text-5xl font-bauhs">Bienvenido</h2>
+      <h2 className="text-center text-5xl font-bauhs  m-4">Bienvenido</h2>
       <ButtonViewForm/>
     </div>
   }
