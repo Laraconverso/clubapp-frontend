@@ -1,12 +1,16 @@
 import { logoutAdmin } from "@/lib/admin.actions"
-import { useRouter, useSearchParams } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { GiReceiveMoney } from "react-icons/gi";
 
+const linkClasses = (path: string) => {
+
+}
 const Admin = () => {
 
   let isAdminAuth = sessionStorage.getItem('adminAuth')
 
   const router = useRouter()
+  const pathname = usePathname()
 
   const logout = async () => {
     sessionStorage.removeItem('adminAuth')
@@ -19,7 +23,14 @@ const Admin = () => {
       {
         !isAdminAuth ? <></> :
 
-          <div>
+          <div className="flex flex-row">
+            <section>
+              <ul>
+                <li className={pathname === "/admin" ? "bg-red-500": ""}>Partidos</li>
+                <li>Equipos</li>
+                <li>Jugadores</li>
+              </ul>
+            </section>
             <section className="flex gap-8">
               <button>Perfil</button>
               <button><GiReceiveMoney /></button>

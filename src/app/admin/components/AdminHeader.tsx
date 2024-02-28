@@ -1,23 +1,22 @@
 import Image from "next/image"
 import logo from "@public/LogoBlanco.png"
-import Navbar from "./navbar/Navbar"
 import Link from "next/link"
+import AdminOptions from "./AdminOptions"
 
-const Header = () => {
+const AdminHeader = () => {
 
   return (
-    <header className="w-screen top-0 z-10 fixed">
-      <div className={`flex flex-row justify-between bg-baltic-sea-950/70`}>
+    <header className="w-screen fixed top-0 z-50">
+      <div className={`flex flex-row justify-between items-center bg-baltic-sea-950/70`}>
         <figure className="text-white p-3 cursor-pointer">
           <Link href={'/'}>
             <Image src={logo} alt="Club App logo" height={60} />
           </Link>
         </figure>
-
-        <Navbar />
+        <AdminOptions/>
       </div>
     </header>
   )
 }
 
-export default Header
+export default AdminHeader
