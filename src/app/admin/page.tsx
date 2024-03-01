@@ -1,28 +1,39 @@
 import { cookies } from "next/headers"
 import LoginAdmin from "./forms/LoginAdmin"
-import ButtonViewForm from "./components/ButtonViewForm"
+import dynamic from "next/dynamic";
+import { Event } from "react-big-calendar";
+import dayjs from "dayjs";
 
-const page = async() => {
+const Calendar = dynamic(() => import('@/components/calendar/Calendar'), { ssr: false })
 
-  const adminAuth = cookies().has("adminAuth");
+type customEvent = Event & {
+  category: string
+}
+
+
+const events:customEvent[] = [
+  {
+    title: 'primer evento',
+    start: dayjs('2024-02-29 18:00').toDate(),
+    end: dayjs('2024-02-29 19:00').toDate(),
+    category: "match" 
+  }
+]
+
+
+const page =async () => {
+
 
   return (
-    <>
-  {
-    !adminAuth ? <LoginAdmin/> 
-    : 
-   
-
-    <div className="w-full h-full flex ">
-       {/* <figure className="w-full">
-          <Image src={footballAdminBanner} className="object-cover" alt={"Football banner"}/>
-        </figure> */}
        
-      <ButtonViewForm/>
+    <div className="w-full h-screen p-20 pt-0">
+      
+       <Calendar views={["month"]} events={events} />
+  
     </div>
   
-  }
-  </>
+
+
   )
 }
 

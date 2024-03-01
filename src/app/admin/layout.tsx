@@ -2,7 +2,10 @@ import "../globals.css"
 import { Inter } from "next/font/google";
 import AdminHeader from "./components/AdminHeader";
 import AdminOptionsMobile from "./components/AdminOptionsMobile";
-
+import { cookies } from "next/headers";
+import LoginAdmin from "./forms/LoginAdmin";
+import background from "@public/background.png"
+import Image from "next/image";
 const inter = Inter({ subsets: ["latin"] });
 
 
@@ -11,6 +14,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const adminAuth = cookies().has("adminAuth");
+
   return (
     <html lang="es">
       <head>
@@ -19,10 +24,17 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet" />
       </head>
 
-      <body className={`${inter.className}  relative box-border bg-baltic-sea-300 max-w-screen  min-h-screen overflow-x-hidden`}>
+      <body className={`${inter.className}relative bg-baltic-sea-300 min-h-screen overflow-x-hidden pb-20`}>
 
+        <figure className="fixed inset-0 object-cover">
+          <Image src={background} alt={"ClubApp background"} />
+        </figure>
         <AdminHeader />
-        {children}
+        {
+          !adminAuth ? <LoginAdmin />
+            :
+            <main className="relative">{children}</main>
+        }
         <AdminOptionsMobile />
       </body>
     </html>

@@ -1,5 +1,4 @@
 import footballUserBanner from "@public/footballUserBanner.png"
-import altaDT from '@public/altaDT.jpeg'
 import altaEquipo from '@public/altaEquipo.png'
 import altaPartido from '@public/altaPartido.png'
 import altaJugador from '@public/altaJugador.jpeg'

@@ -8,7 +8,7 @@ import Image from "next/image"
 
 const AdminOptionsMobile = () => {
     return (
-        <div className="sm:hidden w-full justify-around flex fixed bottom-0 px-4 bg-baltic-sea-950/70">
+        <div className="sm:hidden w-full justify-around flex fixed bottom-0 px-4 bg-baltic-sea-950/70 z-50">
             <Option img={addPlayer} title={"Jugadores"} url="/admin/players" />
             <Option img={addDT} title={"DTs"} url="/admin/coaches" />
             <Option img={addTeam} title={"Equipos"} url="/admin/teams" />

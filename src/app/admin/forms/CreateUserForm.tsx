@@ -57,7 +57,7 @@ const CreateUserForm = () => {
             <h2 className="font-squada text-2xl md:text-4xl">Formulario alta <b>Usuario</b></h2>
             {formState === "userCreated" && <span className="animate-bounce  top-0">Usuario creado exitosamente</span>}
             <form className="flex flex-col gap-10" action={createUser}>
-                <div className="grid md:grid-cols-2 gap-4">
+                <div className="grid sm:grid-cols-2 gap-4">
 
                     {Object.keys(schema.fields).map((fieldName, index) => (
                         <div key={index} className="bg-transparent flex flex-col">
