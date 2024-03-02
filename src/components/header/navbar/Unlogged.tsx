@@ -14,7 +14,7 @@ const Unlogged = () => {
     
   return (
     <div>
-      <button onClick={toggleNavbar} className="group bg-primary-500 font-squada rounded-3xl p-1 px-2 drop-shadow-sm text-baltic-sea-900">
+      <button onClick={toggleNavbar} className="group bg-primary-500 font-squada rounded-3xl p-1 px-2  text-baltic-sea-900">
         <p className="group-active:scale-95">Inicia sesión</p>
         </button>
       {

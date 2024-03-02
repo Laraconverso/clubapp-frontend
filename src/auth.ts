@@ -2,7 +2,7 @@
 
 import { cookies } from "next/headers"
 
-const apiBaseURL = process.env.NODE_ENV === 'production' ? process.env.API_BASE_URL : "http://localhost:8080"
+const apiBaseURL = process.env.API_BASE_URL
 
 export async function authDNI(formData: FormData) {
     const dni = formData.get("dni")?.toString()  ;

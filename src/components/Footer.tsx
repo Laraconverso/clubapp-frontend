@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 const Footer = () => {
   return (
-    <footer className={`bg-baltic-sea-950 p-5 flex flex-col md:flex-row items-center justify-between w-screen bottom-0`}>
+    <footer className={`bg-baltic-sea-950 text-baltic-sea-50 p-5 flex flex-col md:flex-row items-center justify-between w-screen bottom-0`}>
       <div className={`flex gap-2 md:gap-8 mb-4 md:mb-0`}>
         <section>2024 ClubAPP</section>
         <section className={`flex gap-2 md:gap-8`}>
