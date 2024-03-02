@@ -1,5 +1,5 @@
 import footballUserBanner from "@public/footballUserBanner.png"
-import altaDT from '@public/altaDT.jpeg'
+import bgImage from '@public/bgHomeImage.png'
 import altaEquipo from '@public/altaEquipo.png'
 import altaPartido from '@public/altaPartido.png'
 import altaJugador from '@public/altaJugador.jpeg'
@@ -8,14 +8,15 @@ import Image from "next/image"
 const page = () => {
 
   return (
-    <main className="min-h-screen w-screen bg-primary-400 flex flex-col gap-5 items-center ">
+    <main className="min-h-screen w-screen flex flex-col gap-5 items-center ">
+      <Image src={bgImage} alt="login Team Image" fill={true} className="object-cover w-full h-full -z-10" />
         <figure className="w-full">
           <Image src={footballUserBanner} className="object-cover" alt={"Football banner"}/>
         </figure>
         <div className={`mt-14`}>
-          <h1 className="text-center text-5xl font-bauhs"> Bienvenido JUGADOR</h1>
+          <h1 className="text-center text-5xl font-bauhs text-baltic-sea-900"> Bienvenido JUGADOR</h1>
         </div>
-        <div className='grid grid-cols-1 gap-3 mb-6 md:grid-cols-3 md:gap-6 md:p-6 lg:mb-0  items-center justify-center'>
+        <div className='grid grid-cols-1 gap-3 mb-6 md:grid-cols-3 md:gap-6 lg:mb-0  items-center justify-center'>
         <section className='flex flex-col bg-silver-950 px-4 py-5 rounded-3xl cursor-pointer'>
           <p className='text-center text-xl font-bauhs text-primary-500'>MI EQUIPO</p>
           <figure className='w-full max-h-40 overflow-hidden flex items-center justify-center'>

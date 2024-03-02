@@ -10,8 +10,8 @@ const router = useRouter()
   }
 
   return (
-        <button className="group bg-primary-500 font-squada rounded-3xl p-1 px-2 drop-shadow-sm text-baltic-sea-900" onClick={closeUserSession}>
-          <p className="drop-shadow-md group-active:scale-95">Cerrar Sesión</p>
+        <button className="group bg-primary-500 font-squada rounded-3xl p-1 px-2 text-baltic-sea-900" onClick={closeUserSession}>
+          <p className=" group-active:scale-95">Cerrar Sesión</p>
         </button>
   )
 }
