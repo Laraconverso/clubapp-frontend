@@ -4,7 +4,7 @@ import AdminHeader from "./components/AdminHeader";
 import AdminOptionsMobile from "./components/AdminOptionsMobile";
 import { cookies } from "next/headers";
 import LoginAdmin from "./forms/LoginAdmin";
-import background from "@public/background.png"
+import background from "@public/primaryBG.png"
 import Image from "next/image";
 const inter = Inter({ subsets: ["latin"] });
 
