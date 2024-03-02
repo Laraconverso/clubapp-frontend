@@ -7,7 +7,7 @@ const Header = () => {
 
   return (
     <header className="w-screen top-0 z-10 fixed">
-      <div className={`flex flex-row justify-between bg-baltic-sea-950/70`}>
+      <div className={`flex flex-row justify-between cursor-pointer bg-baltic-sea-950/70`}>
         <figure className="text-white p-3 cursor-pointer">
           <Link href={'/'}>
             <Image src={logo} alt="Club App logo" height={60} />

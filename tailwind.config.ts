@@ -55,7 +55,7 @@ const config: Config = {
       },
       dropShadow: {
         md: '0 4px 3px rgba(0, 0, 0, 0.5)'
-      }
+      },
     },
   },
   plugins: [],
