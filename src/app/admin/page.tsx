@@ -26,9 +26,13 @@ const page =async () => {
 
   return (
        
-    <div className="w-full h-screen p-20 pt-0">
+    <div className="w-full h-screen p-20 pt-0 baltic-sea-900">
       
-       <Calendar views={["month"]} events={events} />
+       <Calendar 
+       style={{ maxWidth: '700px', maxHeight: '400px', marginTop:' 30px'}} 
+       views={["month"]} 
+       events={events} 
+        />
   
     </div>
   
