@@ -26,7 +26,7 @@ export default function RootLayout({
 
       <body className={`${inter.className}relative bg-baltic-sea-300 min-h-screen overflow-x-hidden pb-20`}>
 
-        <figure className="fixed inset-0 object-cover">
+        <figure className="fixed inset-0 object-cover -z-10">
           <Image src={background} alt={"ClubApp background"} />
         </figure>
         <AdminHeader />
