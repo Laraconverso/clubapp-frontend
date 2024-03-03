@@ -17,7 +17,7 @@ const LoginAdmin = () => {
     }
 
   return (
-    <div className="grid h-screen place-items-center text-center">
+    <div className="grid h-screen place-items-center text-center z-10">
       <form action={authorizeAdmin} >
         <h2 className="text-2xl font-squada">Ingresa la contraseña de administrador</h2>
         <hr />

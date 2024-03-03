@@ -7,7 +7,7 @@
 button.rbc-btn {
   overflow: visible;
   text-transform: none;
-  -webkit-appearance: button;
+  appearance: button;
   cursor: pointer;
 }
 
@@ -19,4 +19,3 @@ button.rbc-input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
-
