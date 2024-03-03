@@ -1,10 +1,10 @@
 $out-of-range-color: lighten(#333, 40%) !default;
 $out-of-range-bg-color: lighten(#333, 70%) !default;
 
-$calendar-border: #ddd !default;
-$cell-border: #ddd !default;
+$calendar-border: #ffffff45!default;
+$cell-border: #ffffff45 !default;
 
-$border-color: #ccc !default;
+$border-color: #ffffff45 !default;
 
 // Each calendar segment is 1/7th.
 $segment-width: 0.14286% !default;
@@ -23,10 +23,10 @@ $event-zindex: 4 !default;
 
 $btn-color: #373a3c !default;
 $btn-bg: #fff !default;
-$btn-border: #ccc !default;
+$btn-border: #ffffff45 !default;
 
 $current-time-color: #74ad31 !default;
 
 $rbc-css-prefix: rbc-i !default;
 
-$today-highlight-bg: #eaf6ff !default;
+$today-highlight-bg:#f8643bbf !default;

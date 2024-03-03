@@ -9,9 +9,10 @@
   background-color: $event-bg;
   border-radius: $event-border-radius;
   color: $event-color;
+  font-size: 12px;
   cursor: pointer;
   width: 100%;
-  text-align: left;
+  text-align: center;
 
   .rbc-slot-selecting & {
     cursor: inherit;
