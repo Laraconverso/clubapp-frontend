@@ -2,26 +2,30 @@ import FixtureContainer from "@/components/fixture/FixtureContainer";
 import TeamContainer from "@/components/teams/TeamContainer";
 import Image from "next/image";
 import footballBanner from "@public/bannerFootball.png"
-import bgImage from '@public/primaryBG.png'
+import Carousel from "@/components/Carousel";
+import NextMatchContainer from "@/components/nextMatch/NextMatchContainer";
+import PlayedMatchContainer from "@/components/playedMatch/PlayedMatchContainer";
 export default function Home() {
 
+  const cards = [
+    <FixtureContainer key="1" />,
+    <TeamContainer key="2" />,
+    <NextMatchContainer key="3" />,
+    <PlayedMatchContainer key="4" />,
+  ];
+
   return (
-    <main className="flex flex-col min-h-screen">
+    <main className="min-h-screen w-screen flex flex-col gap-5 items-center relative">
       <div>
-        <figure className="w-full">
-          <Image src={footballBanner} className="object-cover" alt={"Football banner"} />
+        <figure className="w-full felx">
+          <Image src={footballBanner} className="object-cover w-full" alt={"Football banner"} />
         </figure>
       </div>
       <div className="relative">
-        <figure className="absolute top-0 h-full w-full object-cover -z-10">
-          <Image src={bgImage} alt="background img" className="w-full h-full" />
-        </figure>
+        
         <div className={`mt-14`}>
           <h1 className="text-center text-5xl font-bauhs drop-shadow-md text-baltic-sea-900"> Bienvenido a ClubAPP</h1>
-        </div>
-        <div className={`flex flex-col lg:flex-row justify-evenly my-6 px-2 gap-5`}>
-          <FixtureContainer />
-          <TeamContainer />
+          <Carousel cards={cards} />
         </div>
       </div>
     </main>
