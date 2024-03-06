@@ -16,11 +16,11 @@ export default function Home() {
 
   return (
     <main className="min-h-screen w-screen flex flex-col gap-5 items-center relative">
-      <div>
-        <figure className="w-full felx">
+      
+        <figure className="w-full object-cover">
           <Image src={footballBanner} className="object-cover w-full" alt={"Football banner"} />
         </figure>
-      </div>
+        
       <div className="relative">
         
         <div className={`mt-14`}>
