@@ -1,6 +1,5 @@
 'use client'
-import { createUserAction } from "@/lib/admin.actions"
-import { DevTool } from "@hookform/devtools"
+import { createPlayerAction } from "@/lib/admin.actions"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
@@ -14,6 +13,7 @@ type Inputs = {
     birthday: string,
     address: string,
 }
+
 const schema: yup.ObjectSchema<Inputs> = yup.object({
     name: yup.string().required("Ingresa el nombre del jugador"),
     lastName: yup.string().required("Ingresa el apellido del jugador"),
@@ -30,15 +30,15 @@ const placeholders: Record<keyof Inputs, string> = {
     birthday: "Fecha de nacimiento *",
     address: "Dirección *",
 };
-const CreateUserForm = () => {
+const CreatePlayer = () => {
     const [formState, setFormState] = useState<"userCreated" | "none">("none")
 
-    const { register, control, formState: { errors }, trigger, reset } = useForm<Inputs>({ resolver: yupResolver(schema), reValidateMode: "onChange" })
+    const { register, formState: { errors }, trigger, reset } = useForm<Inputs>({ resolver: yupResolver(schema), reValidateMode: "onChange" })
 
     const createUser = async (formData: FormData) => {
         const validInputs = await trigger()
         if (!validInputs) return false;
-        const created = await createUserAction(formData)
+        const created = await createPlayerAction(formData)
         if (created) {
             setFormState("userCreated");
             reset();
@@ -51,19 +51,20 @@ const CreateUserForm = () => {
     }
 
     return (
-        <section className="relative size-full flex flex-col gap-10 items-center text-baltic-sea-900 p-4">
+        <section className="relative size-full flex flex-col gap-10 items-center text-baltic-sea-900 mb-3 sm:gap-5 ">
 
 
-            <h2 className="font-squada text-2xl md:text-4xl">Formulario alta <b>Usuario</b></h2>
+            <h2 className="font-squada text-3xl sm:text-3xl md:text-4xl text-center px-4">Formulario alta <b>Jugador</b></h2>
             {formState === "userCreated" && <span className="animate-bounce  top-0">Usuario creado exitosamente</span>}
             <form className="flex flex-col gap-10" action={createUser}>
-                <div className="grid sm:grid-cols-2 gap-4">
+                <div className="grid  gap-4">
 
                     {Object.keys(schema.fields).map((fieldName, index) => (
                         <div key={index} className="bg-transparent flex flex-col">
                             <input {...register(fieldName as keyof Inputs)}
                                 lang="es"
                                 type={fieldName === "birthday" ? "date" : "text"}
+                                min="2011-01-01" max="2018-12-31"
                                 name={fieldName}
                                 className="bg-transparent text-center md:text-left placeholder:text-baltic-sea-900 border-b-[1px] border-baltic-sea-900 outline-none"
                                 placeholder={placeholders[fieldName as keyof Inputs]} />
@@ -78,4 +79,4 @@ const CreateUserForm = () => {
     )
 }
 
-export default CreateUserForm
+export default CreatePlayer

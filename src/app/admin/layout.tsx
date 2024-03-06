@@ -6,9 +6,12 @@ import { cookies } from "next/headers";
 import LoginAdmin from "./forms/LoginAdmin";
 import background from "@public/primaryBG.png"
 import Image from "next/image";
+import { Metadata } from "next";
 const inter = Inter({ subsets: ["latin"] });
 
-
+export const metadata: Metadata = {
+  title: "Administrador"
+}
 export default function RootLayout({
   children,
 }: {
@@ -24,16 +27,16 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet" />
       </head>
 
-      <body className={`${inter.className}relative bg-baltic-sea-300 min-h-screen overflow-x-hidden pb-20`}>
+      <body className={`${inter.className} relative grid auto-rows-[auto_1fr_auto] bg-baltic-sea-300 max-w-screen min-h-screen overflow-x-hidden text-baltic-sea-950`}>
 
-        <figure className="fixed inset-0 object-cover -z-10">
-          <Image src={background} alt={"ClubApp background"} />
+        <figure className="fixed top-0 h-full w-full -z-10 overflow-hidden">
+          <Image src={background} alt={"ClubApp background"} fill={true}/>
         </figure>
         <AdminHeader />
         {
           !adminAuth ? <LoginAdmin />
             :
-            <main className="relative">{children}</main>
+            <main className="relative h-full w-full">{children}</main>
         }
         <AdminOptionsMobile />
       </body>

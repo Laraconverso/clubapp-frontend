@@ -7,7 +7,7 @@ import { cookies } from "next/headers"
 const AdminHeader = () => {
   const adminAuth = cookies().has("adminAuth")
   return (
-    <header className="w-full sticky top-0 z-50">
+    <header className="min-w-screen sticky top-0 z-40">
       <div className={`flex flex-row justify-between items-center bg-baltic-sea-950/70`}>
         <figure className="text-white p-3 cursor-pointer">
           <Link href={'/'}>

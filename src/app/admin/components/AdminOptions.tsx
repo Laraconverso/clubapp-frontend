@@ -7,22 +7,44 @@ import addTeam from '@public/addTeam.svg'
 import addMatch from '@public/addMatch.svg'
 import { IoIosArrowDropleft } from "react-icons/io"
 import Link from "next/link"
+import saveMoney from '@public/saveMoney.svg'
+import { logoutAdmin } from "@/lib/admin.actions"
+import { useRouter } from "next/navigation"
 
 const AdminOptions = () => {
+  const router = useRouter()
+  const logout = async () => {
+    await logoutAdmin()
+    router.replace("/")
+  }
 
   return (
-    <div className="hidden relative group h-fit text-center font-squada sm:block" tabIndex={0}>
-      <div className="flex flex-col items-center mx-4 text-primary-50 cursor-pointer">
-        <IoIosArrowDropleft className="text-4xl text-primary-500 group-focus-within:-rotate-180 transition" />
-        <span>GESTIÓN</span>
+    <nav className="flex text-primary-50 items-center" >
+      <div className="flex *:mx-4 font-squada">
+        <button className="rounded-2xl bg-primary-500 h-fit self-center px-4 py-1 text-sm text-baltic-sea-900 font-thin"
+        onClick={logout}>
+          CERRAR SESIÓN
+          </button>
+        <button className="flex flex-col  items-center">
+          <Image src={saveMoney} alt="save" width={30} />
+          <span>COBROS</span>
+        </button>
       </div>
-      <nav className="translate-x-full -right-0 w-24 mt-10 absolute invisible bg-baltic-sea-950/70  flex-col justify-around group-focus-within:translate-x-0 group-focus-within:visible transition-all ">
-        <AdminOption img={addPlayer} title={"Jugadores"} url="/admin/players" />
-        <AdminOption img={addDT} title={"DTs"} url="/admin/coaches" />
-        <AdminOption img={addTeam} title={"Equipos"} url="/admin/teams" />
-        <AdminOption img={addMatch} title={"Partidos"} url="/admin/matches" />
-      </nav>
-    </div>
+      <div className="hidden relative group h-fit text-center font-squada sm:block" >
+        <div className="flex flex-col items-center mx-4 cursor-pointer">
+          <input type="checkbox" className="absolute w-full h-full z-10 opacity-0"/>
+          <IoIosArrowDropleft className="text-4xl text-primary-500 group-has-[:checked]:-rotate-180 transition" />
+          <span>GESTIÓN</span>
+        </div>
+        <nav className="flex-col w-24 fixed -right-24 transition-[right] justify-around  mt-10 bg-baltic-sea-950/70 group-has-[:checked]:right-0 z-40">
+          <AdminOption img={addPlayer} title={"Jugadores"} url="/admin/players" />
+          <AdminOption img={addDT} title={"DTs"} url="/admin/coaches" />
+          <AdminOption img={addTeam} title={"Equipos"} url="/admin/teams" />
+          <AdminOption img={addMatch} title={"Partidos"} url="/admin/matches" />
+        </nav>
+      </div>
+
+    </nav>
   )
 }
 

@@ -1,6 +1,10 @@
+import CreateDT from "../../forms/CreateDT"
+
 const coachesPage = () => {
   return (
-    <div>page</div>
+    <div>
+      <CreateDT/>
+    </div>
   )
 }
 
